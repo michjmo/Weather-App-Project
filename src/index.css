@@ -1,13 +1,115 @@
-body {
+/* Reset & base */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+}
+
+/* Container & transitions */
+.app-container {
+  min-height: 100vh;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition:
+    background-color 0.6s ease,
+    background-image 0.6s ease,
+    background 0.6s ease,
+    color 0.4s ease;
+}
+
+/* Themes */
+.light {
+  --text-color: #222;
+}
+
+.dark {
+  --text-color: #f1f1f1;
+}
+
+/* Header */
+.app-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Toggle button corner */
+.theme-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  cursor: pointer;
+}
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Search form */
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.search-form input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+.search-form button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Error text */
+.error {
+  color: #ffdddd;
+  background: rgba(255, 0, 0, 0.4);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* Fade */
+.fade-in {
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Weather backgrounds */
+.bg-sunny {
+  background: linear-gradient(to bottom, #f9d423, #ff4e50);
+}
+.bg-cloudy {
+  background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+}
+.bg-rainy {
+  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+}
+.bg-snowy {
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+}
+.bg-default {
+  background: linear-gradient(to bottom, #83a4d4, #b6fbff);
 }
